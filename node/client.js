@@ -44,3 +44,16 @@ client.doSubtraction(
     }
   }
 );
+
+client.computeCentralOfFive(
+  { a: 2, b: 2, c: 5, d: 7, e: 11 },
+  (error, centrals) => {
+    if (!error) {
+      console.log("Mean:", centrals.mean);
+      console.log("Median:", centrals.median);
+      console.log("Mode:", centrals.mode);
+    } else {
+      console.log("Error:", error.message);
+    }
+  }
+)

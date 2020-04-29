@@ -38,6 +38,15 @@ def main():
     except grpc.RpcError as e:
         print("Error raised: " + e.details())
 
+    try:
+        centrals = stub.ComputeCentralOfFive(pb.FiveTuple(a=1, b=2, c=2, d=3, e=4))
+        print('mean:', centrals.mean)
+        print('median:', centrals.median)
+        print('mode:', centrals.mode)
+
+    except grpc.RpcError as e:
+        print('Error raised:', e.details())
+
 
 if __name__ == '__main__':
     main()

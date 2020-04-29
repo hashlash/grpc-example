@@ -2,25 +2,40 @@ syntax = "proto3";
 
 package example;
 
-service ExampleService { 
-    rpc SayHello(HelloRequest) returns (HelloResponse); 
-    rpc DoAddition(NumberRequest) returns (NumberResponse); 
-    rpc DoSubtraction(NumberRequest) returns (NumberResponse); 
+service ExampleService {
+    rpc SayHello(HelloRequest) returns (HelloResponse);
+    rpc DoAddition(NumberRequest) returns (NumberResponse);
+    rpc DoSubtraction(NumberRequest) returns (NumberResponse);
+    rpc ComputeCentralOfFive(FiveTuple) returns (CentralTendency);
 }
 
-message HelloRequest { 
-    string greeting = 1; 
+message HelloRequest {
+    string greeting = 1;
 }
 
-message HelloResponse { 
-    string reply = 1; 
+message HelloResponse {
+    string reply = 1;
 }
 
-message NumberRequest { 
-    int32 first_number = 1; 
-    int32 second_number = 2; 
+message NumberRequest {
+    int32 first_number = 1;
+    int32 second_number = 2;
 }
 
-message NumberResponse { 
-    int32 result = 1; 
+message NumberResponse {
+    int32 result = 1;
+}
+
+message FiveTuple {
+    int32 a = 1;
+    int32 b = 2;
+    int32 c = 3;
+    int32 d = 4;
+    int32 e = 5;
+}
+
+message CentralTendency {
+    float mean = 1;
+    int32 median = 2;
+    int32 mode = 3;
 }
